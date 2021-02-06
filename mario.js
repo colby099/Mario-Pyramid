@@ -1,5 +1,5 @@
 
-printPyramid(5);
+drawPyramid(5);
 // TODO #2
 // Take in user input for the height
 
@@ -15,24 +15,40 @@ printPyramid(5);
  *       #####
  *      ######
  */
-function printPyramid(height) {
 
-//Declare variables
-let string = '';
-let i;
-let j;
-let k;
-let brick = "#";
+function drawPyramid(height) {
 
-//Setup pyramid and run the code
+  //Get the pyramid container element
+  var container = document.getElementById("pyramid");
+
+  //Delete the Under Construction messages
+  var construction = document.getElementById("construction");
+  container.removeChild(construction);
+
+  //Declare variables for pyramid loops
+  let rowStr = '';
+  let i;
+  let j;
+  let k;
+  let brick = "#";
+
+  //Setup pyramid
   for(i = 1; i <= height; i++){
-    string = "";
+    rowStr = "";
     for(j = 1; j <= (height - i); j++){
-      string += " ";
+      rowStr += ".";
     }
     for(k = 1; k <= i + 1; k++){
-      string += brick;
+      rowStr += brick;
     }
-    console.log(string);
+
+  //Create a <p> element
+  var pElem = document.createElement("p");
+
+  //Set rowStr to be the inner text of the <p>
+  pElem.innerHTML = rowStr;
+  
+  //Insert the paragraph as a child of the <div>
+  container.appendChild(pElem);
   }
 }
