@@ -1,11 +1,22 @@
+//Call the button 
+var button = document.getElementById("draw");
 
-drawPyramid(5);
-// TODO #2
-// Take in user input for the height
+//Set the action
+button.onclick = function() {
+
+  //Get user input
+  rowStr = document.getElementById("height").value
+
+  //Convert height from string to int
+  height = parseInt(rowStr);
+
+  //Draw pyramid with user height
+  drawPyramid(height);
+}
 
 
 /*
- * printPyramid
+ * drawPyramid
  *
  * Prints to the console a pyramid of '#' characters of the specified height
  * For example, if height is 5, the console will look like this:
@@ -20,10 +31,6 @@ function drawPyramid(height) {
 
   //Get the pyramid container element
   var container = document.getElementById("pyramid");
-
-  //Delete the Under Construction messages
-  var construction = document.getElementById("construction");
-  container.removeChild(construction);
 
   //Declare variables for pyramid loops
   let rowStr = '';
