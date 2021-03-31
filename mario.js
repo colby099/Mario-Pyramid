@@ -1,51 +1,46 @@
-//Call the button 
-var button = document.getElementById("draw");
+//Call the slider
+var slider = document.getElementById("range");
 
-//Set the action
-button.onclick = function() {
-
-  //Get user input
-  rowStr = document.getElementById("height").value
-
-  //Convert height from string to int
-  height = parseInt(rowStr);
-
-  //Draw pyramid with user height
-  drawPyramid(height);
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
 }
 
 
-/*
- * drawPyramid
- *
- * Prints to the console a pyramid of '#' characters of the specified height
- * For example, if height is 5, the console will look like this:
- *          ##
- *         ###
- *        ####
- *       #####
- *      ######
- */
+//Set the slider action
+slider.oninput = function() {
+  
+  //Set the pyramid height to the slider value
+  rowStr = document.getElementById("range").value
 
+  //Define height with rowStr
+  height = rowStr;
+
+  //Draw pyramid using slider for height
+  drawPyramid(height);
+}
+
+//Call drawPyramid function
 function drawPyramid(height) {
 
   //Get the pyramid container element
   var container = document.getElementById("pyramid");
 
+  container.innerHTML = '';
+
   //Declare variables for pyramid loops
   let rowStr = '';
-  let i;
-  let j;
-  let k;
-  let brick = "#";
+
+  //pull the value from the dropdown
+  let brick = document.getElementById("nbrick").value;
 
   //Setup pyramid
-  for(i = 1; i <= height; i++){
+  for(let i = 1; i <= height; i++){
     rowStr = "";
-    for(j = 1; j <= (height - i); j++){
-      rowStr += ".";
+    for(let j = 1; j <= (height - i); j++){
+      rowStr += "&nbsp;";
     }
-    for(k = 1; k <= i + 1; k++){
+    for(let k = 1; k <= i + 1; k++){
       rowStr += brick;
     }
 

@@ -1,44 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Pyramid Slide</title>
+
     <style>
+      #pyramid {
+        line-height: 0;
+        font-size: 30px; 
+        color: #FFD987;
+      }
 
-        #pyramid {
-            line-height: 0;
-            font-size: 30px;
-        }
+      body {
+        font-family: "Courier New", monospace;
+        text-align: center;
+        background-image: url('mario1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
 
-        body {
-            font-family: "Courier New", monospace;
-            text-align: center;
-       }
+      form {
+        border-style: outset;
+        border-radius: 10px;
+        border-width: 5px;
+        background-color: #6a0400;
+        color: #FFD987;
+        font-family: "Arial Black", Arial;
+        font-size: 20px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        margin-left: 640px;
+        margin-right: 640px;
+      }
+
+      h1 {
+        background-color: #6a0400;
+        color: #FFD987;
+        font-family: "Arial Black", Arial;
+        font-size: 70px;
+        border-style: outset;
+        border-radius: 10px;
+        border-width: 10px;
+        margin-left: 500px;
+        margin-right: 500px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      #nbrick{
+        font: menu;
+      }
+
     </style>
-</head>
-<body >
-    <h1>Mario 3</h1>
+  </head>
+  <body >
+    <h1>Pyramid Slide</h1>
 
     <br>
 
-    <p>When you say</p>
+    <form>
+      <label for="nbrick">Brick Symbol:</label>
+      <select name="nbrick" id="nbrick">
+        <option value="#">#</option>
+        <option value="X">X</option>
+        <option value="@">@</option>
+        <option value="+">+</option>
+      </select>
 
-    <p><strong>Draw a pyramid</strong></p>
+      &nbsp; &nbsp; &nbsp;
 
-    <p>I say:</p>
-
-    <br>
-
-    <label>How high?</label>
-
-    <input type="text" id="height"/>
+      <label for="range">How high?</label>
+      <input type="range" class="slider" id="range" value="1" min="1" max="15">
+    </form>
 
     <br><br>
-
-    <button id="draw">Draw a pyramid</button>
-
-    <br><br>
-
+    
     <div id="pyramid"></div>
 
     <script src="mario.js"></script>
-</body>
+  </body>
 </html>
